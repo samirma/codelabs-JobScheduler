@@ -20,17 +20,13 @@ class NotificationJobService: JobService() {
     private val PRIMARY_CHANNEL_ID = "primary_notification_channel"
 
     override fun onStopJob(p0: JobParameters?): Boolean {
-        TODO("Not yet implemented")
+       return false
     }
 
     override fun onStartJob(p0: JobParameters?): Boolean {
 
         //Create the notification channel
-
-        //Create the notification channel
         createNotificationChannel()
-
-        //Set up the notification content intent to launch the app when clicked
 
         //Set up the notification content intent to launch the app when clicked
         val contentPendingIntent = PendingIntent.getActivity(
@@ -60,7 +56,7 @@ class NotificationJobService: JobService() {
     /**
      * Creates a Notification channel, for OREO and higher.
      */
-    fun createNotificationChannel() {
+    private fun createNotificationChannel() {
 
         // Define notification manager object.
         mNotifyManager =
